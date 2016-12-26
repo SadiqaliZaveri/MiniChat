@@ -1,0 +1,243 @@
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="resources/js/jquery-3.1.1.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+    <script src="resources/js/jquery.autocomplete.min.js"></script>
+    	
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="resources/js/bootstrap.min.js"></script>   
+    <script src="resources/js/dirPagination.js"></script>
+    
+ 	
+    <link href="resources/css/simple-sidebar.css" rel="stylesheet"/>
+    <link href="resources/css/footer-distributed-with-address-and-phones.css" rel="stylesheet" />
+    <link href="resources/css/megamenu.css" rel="stylesheet" />  
+    <link href="resources/css/Main.css" rel="stylesheet" />
+    <link href="resources/css/animate.css" rel="stylesheet"/>
+    <link rel="icon" href="resources/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>MiniChat</title>
+    <script>
+    $(document).ready(function() {
+		var medsize = window.matchMedia("(min-width: 768px)");
+		if(medsize.matches) 
+		{
+			
+			$("#wrapper").toggleClass("toggled");
+		} 
+		
+		
+		});
+    </script>
+  </head>
+<body ng-app="Caller">
+<div class="se-pre-con"></div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand animated tada" href="#/" target="_self"><i class="fa fa-address-book"> </i> MiniChat</a>
+          <a class="navbar-brand" href="#" id="menu-toggle"><i class="glyphicon glyphicon-resize-full"></i></a>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="myNavbar">
+
+          	<ul id="maincategory" class="nav navbar-nav" style="margin-left:5%">
+        
+          
+          
+
+    
+  			</ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+           
+             
+
+           
+          </ul>
+        </div>
+                
+	
+      </div>
+    </nav>
+
+    <!--    NAVIGATION BAR TOP ENDS  -->
+
+    <!--   Bottom Div Bar   -->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav hidden-xs">
+          <li id="todaysmessage" ><a>Today's Message :</a></li>
+          <li>
+            <a>
+              <marquee style="font-size:13px; height:17px; min-width: 200px;" >
+      yo
+  </marquee>
+            </a>
+          </li>
+          <li><a href="home"><i class="fa fa-home"></i></a></li>
+          <li><a href="FAQ"><i class="fa fa-question"></i></a></li>
+          <li><a href="contactus"><i class="fa fa-phone"></i></a></li>
+          <li><a href="aboutus"><i class="fa fa-info-circle"></i></a></li>
+          
+        </ul>
+        <ul class="nav navbar-nav navbar-right pull-right">
+          <li onclick="scrolltop()"><a><span class="glyphicon glyphicon-arrow-up"></span></a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+<!--    SIDE BAR WRAPPER / ALL CONTENT GOES IN HERE FOR RESPONSIVENESS  -->
+<div id="wrapper">
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <a id="menu-toggle" href="#" style="color:#f65819" class="btn btn-sm pull-right"><i class="glyphicon glyphicon-resize-full"></i></a>
+    <li class="sidebar-brand text-center">
+      FILTERS
+    </li>
+   
+    <hr style="margin-top:0px;">
+    
+   
+      <li>
+        <div class="panel-group filters">
+          <div class="panel panel-default">
+            <a data-toggle="collapse" href="#collapse1" onclick="event.preventDefault();">
+              <div class="panel-heading" >
+                <h4 class="panel-title " >
+          			YO
+          		</h4>
+              </div>
+            </a>
+            <div id="collapse1" class="panel-collapse collapse">
+              <ul class="list-group">
+                
+                  <a href="">
+                    <li class="list-group-item">
+                      Yo
+                      <p>
+                    </li>
+                  </a>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+    
+  </ul>
+</div>
+<!--	PAGE CONTENT WRAPPER / ALL PRODUCT CONTENT IN HERE	-->
+<div id="page-content-wrapper" style="top:100px">
+
+
+<!--  		VIEW CONTAINER -->
+<div ng-view></div>
+<!--  		VIEW CONTAINER ENDS-->
+
+
+<!-- 			FOOTER -->
+<hr>
+<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<marquee style="border-right: 2px solid orange; border-left: 2px solid orange"><img alt="Logo" src="resources/images/logo.png" width="175" height="150"></marquee>
+
+				<p class="footer-links">
+					<a href="home">Home</a>
+					·
+					<a href="">About</a>
+					·
+					<a href="FAQ">FAQ</a>
+					·
+					<a href="contactus">Contact</a>
+				</p>
+
+				<p class="footer-company-name">All Rights Reserved. Sadiqali Zaveri. MiniChat &copy; 2016</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>Mumbai</span> Maharastra, India</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p> +123-456-789-10</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:minichat@gmail.com">minichat@gmail.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					We value your talks & views. Let yourself be heard.
+				</p>
+
+				
+
+				<a href="https://www.facebook.com/sadiqali.zaveri"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a> 
+            	<a href="https://twitter.com/Sadiqali_Zaveri"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a> 
+	            <a href="https://plus.google.com/118380662731182759935"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a> 
+	            <a href="mailto:minichat@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a> 
+
+				
+
+			</div>
+
+</footer>
+<!-- 		FOOTER ENDS -->
+
+</div>
+<!--    PAGE CONTENT WRAPPER ENDS   -->
+
+</div>
+<!--    SIDE BAR WRAPPER ENDS  -->
+<script src="resources/js/app.js"></script>
+<script src="resources/js/UserService.js"></script>
+<script src="resources/js/UserController.js"></script>
+<script>
+
+$(window).on('load', function () {
+	$(".se-pre-con").fadeOut("fast");
+});
+
+//Toggle Button Script 
+$("#menu-toggle, #menu-toggle-2").click(function(e) {
+  e.preventDefault();
+  $("#wrapper").toggleClass("toggled");
+});
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+
+function scrolltop() {
+	  window.scrollTo(0, 0);
+	};
+</script>
+
+
+</body>
+</html>

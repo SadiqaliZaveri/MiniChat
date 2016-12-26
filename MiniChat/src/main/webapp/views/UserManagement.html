@@ -1,0 +1,122 @@
+
+
+
+<div class="container ng-cloak" ng-controller="UserController as ctrl">
+
+<blockquote>
+  <h3>Admin Panel </h3></blockquote>
+ <hr>
+<blockquote>
+  <h4>User Management</h4></blockquote>
+<div class="container-fluid" >
+  
+    <div class="form-group tenpxtop">
+      <button type="button" href="#userModal" data-toggle="modal"  class="btn btn-success"> Manage</button>
+    </div>
+ 
+  
+  
+</div> 
+
+<!-- USER MODAL           -->
+ <div class="modal fade" id="userModal">
+<div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 class="modal-title">Users List</h3>
+        </div>
+        <div class="modal-body">
+        <blockquote style="background-color:#f65819; cursor:pointer;" data-toggle="collapse" data-target="#addUser">
+  <h4 class="text-center">Add User</h4>
+  
+  
+  </blockquote>
+        <form ng-submit="ctrl.submit()" name="userForm" id="categoryform" class="form" >
+        <div id="addUser" class="collapse">
+  <input type="hidden" ng-model="ctrl.user.userId" />
+    <div class="form-group tenpxtop">
+      <label for="bname">Username:</label>
+      
+      <input type="text" ng-model="ctrl.user.username" id="bname" class="username form-control" id="bname" maxlength="255" required ng-minlength="3"/>
+      
+    </div>
+    <div class="form-group tenpxtop">
+      <label for="password">password:</label>
+      
+      <input type="password" ng-model="ctrl.user.password" id="password" class="password form-control" id="password" maxlength="20" required ng-minlength="6"/>
+      
+    </div>
+    <div class="form-group tenpxtop">
+      <button type="submit" class="btn btn-warning" ng-disabled="userForm.$invalid"> {{!ctrl.user.userId ? 'Add' : 'Update'}}</button>
+      <button type="button" ng-click="ctrl.reset()" class="btn btn-warning" ng-disabled="userForm.$pristine">Reset Form</button>
+    </div>
+    <div class="form-group tenpxtop">
+      
+    </div>
+    </div>
+  </form>
+        <div class="form-group">
+        <label>Search:</label>
+        <input class="form-control" ng-model="test">
+        </div>
+        <div class="form-group">
+              <label for="search">Items per page:</label>
+              <select class="form-control" ng-model="maxsize" ng-init="maxsize=10">
+			    <option ng-selected="true">10</option>
+			    <option>20</option>
+			    <option>30</option>
+			    <option>40</option>
+			  </select>
+<!--               <input type="number" min="1" max="100" class="form-control" ng-model="maxsize" ng-init="maxsize=10" > -->
+            </div>
+            <div style="overflow: auto">
+          <table class="table table-striped" id="tblGrid">
+          
+            <thead id="tblHead">
+              <tr>
+                <th ng-click="sort('userId')">User ID
+                <span class="glyphicon sort-icon" ng-show="sortKey=='userId'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"> </span>
+                </th>
+                <th ng-click="sort('username')">Username
+                <span class="glyphicon sort-icon" ng-show="sortKey=='username'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('password')">Password
+                <span class="glyphicon sort-icon" ng-show="sortKey=='password'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                
+               
+              </tr>
+            </thead>
+            <tbody>
+            <tr dir-paginate="row in ctrl.users | filter: test | orderBy:sortKey:reverse |itemsPerPage: maxsize" pagination-id="user">
+            <td><span ng-bind="row.userId"></span></td>
+            <td><span ng-bind="row.username"></span></td>
+            <td><span ng-bind="row.password"></span></td>
+            <td><a href="" ng-click="ctrl.edit(row.userId)"><i class="fa fa-edit largetxt" style="color:#f65819" title="Edit"></i></a></td>
+            <td><a href="" ng-click="ctrl.remove(row.userId)"><i class="fa fa-trash largetxt" style="color:#f65819" title="Delete"></i></a></td>
+            </tr>
+            </tbody>
+            
+          </table>
+          </div>
+		</div>
+        <div class="modal-footer">
+        <dir-pagination-controls class="pull-left"  max-size="5" pagination-id="user" direction-links="true" boundary-links="true" ></dir-pagination-controls>
+          <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+ 
+ 
+ 
+ 
+         
+        
+        </div>
+     
+       
+     
+
